@@ -27,9 +27,10 @@ class myStack
         sz=0;
     }
 
-    void push(int d)
+    vvoid push(int d)
     {
         node* n=new node(d);
+        n->next=head;
         head=n;
         sz++;
     }
@@ -42,8 +43,10 @@ class myStack
         }
 
         int res=head->data;
-        head=head->res;
+        node* n=head;
+        head=head->next;
         delete n;
+        sz--;
 
         return res;
     }
@@ -65,6 +68,7 @@ class myStack
             return INT_MAX;
         }
 
+        return (head->data);
     }
 };
 
