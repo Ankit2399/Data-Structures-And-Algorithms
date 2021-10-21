@@ -11,7 +11,22 @@ void shortestPath(vector<int> adj[], int v, int s, int dist[])//time comp. O(V+E
 
 	q.push(s);
 	visited[s] = true;
+	
+	while (!q.empty())
+	{
+		int u = q.front();
+		q.pop();
 
+		for (auto x : adj[u])
+		{
+			if (visited[x] == false)
+			{
+				dist[x] = dist[u] + 1;
+				visited[x] = true;
+				q.push(x);
+			}
+		}
+	}
 	
 }
 
